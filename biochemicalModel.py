@@ -18,10 +18,9 @@ for var in gl:
 
 close('all')
 
-
-Sm_Vi = 9e4, gNa = 0.0039, F = 9.65e4, RT_F = 26.73, Nae = 150, Vm = -70, kPump = 0.29e-6, KmPump = 0.5, TmaxGlC = 0.0476
 # a lot of biochemical enzymatic reactions to allow the metabolism pathway modelling. The glucose molecule is first breakdown into pyruvate
 # (glycolysis) and then the pyruvate into ATP (mitochondrial activity) the modelling follow the Michaelis-Menten equation
+Sm_Vi = 9e4, gNa = 0.0039, F = 9.65e4, RT_F = 26.73, Nae = 150, Vm = -70, kPump = 0.29e-6, KmPump = 0.5, TmaxGlC = 0.0476
 KtGLC = 9, kHK_PFK = 0.12, KIATP = 1, nH = 4, Kg = 0.05, kPGK = 42.6, N = 0.212, kPK = 86.7, kpLDH = 2000, kmLDH = 44.8
 TmaxLAC = 0.00628, KtLAC = 0.5, VmaxMito = 0.025, KmMito = 0.05, KiMito = 183.3, n = 0.1, KO2i = 0.001, kpCK = 3666
 kmCK = 20, C = 10, PScap_Vi = 1.6, KO2 = 0.0361, HB_OP = 8.6, nh = 2.73, Vcap = 0.0055, O2a = 8.34, GLCa = 4.8, LACa = 0.313
@@ -124,10 +123,9 @@ vPumptab = zeros(len(t))
 vStimtab = zeros(len(t))
 
 dAMP = 0
-
+# these ODE describe the different enzymatic reactions happening in the nervous cells driven by 
+# the rate equations written earlier
 for i in arange(1,len(t)):
-    # these ODE describe the different enzymatic reactions happening in the nervous cells driven by 
-    # the rate equations written earlier
     
     # ATP consumption by the electrophysiological activity
     vLeak_Natab[i] = vLeak_Na(Nai[i-1])
